@@ -3,12 +3,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.thedeveloperworldisyours.donutscore"
-        minSdkVersion 25
+        minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -42,15 +43,15 @@ dependencies {
     // CheckNotNull
     compile "com.google.guava:guava:$rootProject.guavaVersion"
 
-    // Rx java
-    compile "io.reactivex:rxjava:$rootProject.rxjavaVersion"
-    compile "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
-
     // Retrofit
     compile "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
     compile "com.squareup.retrofit2:converter-moshi:$rootProject.retrofit"
-    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofit"
-    compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.retrofit2rxjava2adapter"
+
+    // Coroutines
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines"
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines"
+    // Coroutines - Retrofit extention
+    compile "ru.gildor.coroutines:kotlin-coroutines-retrofit:$rootProject.coroutinesretrofit"
 
     // OkHttp
     compile "com.squareup.okhttp3:okhttp:$rootProject.okhttp"
@@ -59,12 +60,10 @@ dependencies {
     //Dagger
     compile "com.google.dagger:dagger:$rootProject.dagger"
     compile "com.google.dagger:dagger-android:$rootProject.dagger"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger"
+    provided 'org.glassfish:javax.annotation:10.0-b28'
     annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.dagger"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger"
-
-    // Butter knife
-    compile "com.jakewharton:butterknife:$rootProject.butterknife"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
 
     // Mockito
     testCompile "org.mockito:mockito-core:$rootProject.mockito"
@@ -75,4 +74,11 @@ dependencies {
     compile "de.hdodenhof:circleimageview:$rootProject.circle"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    // Tests
+    testCompile 'junit:junit:4.12'
+    testCompile 'com.nhaarman:mockito-kotlin:1.5.0'
+    testCompile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }

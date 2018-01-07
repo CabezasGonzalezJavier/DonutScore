@@ -3,6 +3,10 @@
 buildscript {
     ext.kotlin_version = '1.1.51'
     repositories {
+        mavenCentral()
+        maven {
+            url "http://repository.jetbrains.com/all"
+        }
         google()
         jcenter()
     }
@@ -44,9 +48,11 @@ ext {
     rxjavaVersion = '1.1.8'
     rxandroidVersion = '1.2.1'
     okhttp = '3.3.1'
-    dagger = '2.10'
+    dagger = '2.11'
     mockito = '1.10.19'
     assertj = '2.7.0'
     constraint = '1.0.2'
+    coroutines = '0.19.3'
+    coroutinesretrofit= '0.8.2'
     circle = '2.2.0'
 }
