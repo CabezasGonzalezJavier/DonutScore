@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeActionBar">20sp</dimen>
+    <dimen name="progressBar">250dp</dimen>
+    <dimen name="circle">270dp</dimen>
+</resources>

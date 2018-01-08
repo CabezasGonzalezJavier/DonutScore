@@ -30,26 +30,27 @@ class ScoreManagerTest {
 
     @Test
     fun success_check_response_is_not_null() = testBlocking {
-        // prepare
+        // given
         Example(null, CreditReportInfo(543, null, null, null, null,null, null, null, null), null, null, null, null).mockApiCall()
 
-        // call
+        // when
         val scoreManager = ScoreManager(apiMock)
-
         val example = scoreManager.getExample()
 
-        // assert
+        // then
         assertNotNull(example)
     }
 
     @Test
     fun error_Exception_received_from_service_call() {
-        // prepare
+        // given
         val callMock = MockedCall<Example>(exception = Throwable())
         whenever(apiMock.getExample()).thenReturn(callMock)
 
-        // call
+        // when
         val newsManager = ScoreManager(apiMock)
+
+        // then
         assertFailsWith<Throwable> {
             runBlocking {
                 newsManager.getExample()

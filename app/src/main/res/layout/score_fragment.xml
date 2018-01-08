@@ -1,17 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/score_constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/score_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/score_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/progressBar"
+        android:layout_height="@dimen/progressBar"
+        android:progressDrawable="@drawable/circle"
+        android:rotation="-90"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/score_circle"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/circle"
+        android:layout_height="@dimen/circle"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/circle_completed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.thedeveloperworldisyours.donutscore.utils.CustomTextView
         android:id="@+id/score_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/empty"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorAccent"
+        android:textSize="50sp"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/score_your_credit_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_credit"
+        android:textColor="@color/colorText"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/score_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/score_out_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/out_of"
+        android:textColor="@color/colorText"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score_textView" />
 </android.support.constraint.ConstraintLayout>
