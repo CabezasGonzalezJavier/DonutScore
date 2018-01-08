@@ -1,6 +1,5 @@
 package com.thedeveloperworldisyours.donutscore
 
-import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.whenever
 import com.thedeveloperworldisyours.donutscore.data.CreditReportInfo
 import com.thedeveloperworldisyours.donutscore.data.Example

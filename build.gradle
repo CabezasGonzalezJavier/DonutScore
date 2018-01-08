@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.1.51'
+    ext.kotlin_version = '1.1.60'
     repositories {
         mavenCentral()
         maven {
@@ -44,9 +44,6 @@ ext {
     guavaVersion = '18.0'
     butterknife = '8.4.0'
     retrofit = '2.1.0'
-    retrofit2rxjava2adapter = '1.0.0'
-    rxjavaVersion = '1.1.8'
-    rxandroidVersion = '1.2.1'
     okhttp = '3.3.1'
     dagger = '2.11'
     mockito = '1.10.19'
@@ -54,5 +51,4 @@ ext {
     constraint = '1.0.2'
     coroutines = '0.19.3'
     coroutinesretrofit= '0.8.2'
-    circle = '2.2.0'
 }
