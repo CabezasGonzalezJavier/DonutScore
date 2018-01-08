@@ -9,7 +9,7 @@ import javax.inject.Inject
 /**
  * Created by javiergonzalezcabezas on 6/1/18.
  */
-class ScoreManager @Inject constructor(private val api: ExampleAPI) {
+class ScorePresenter @Inject constructor(private val api: ExampleAPI) {
 
     suspend fun getExample(): Example {
         val result = api.getExample().awaitResult()

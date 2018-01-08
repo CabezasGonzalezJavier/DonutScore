@@ -6,7 +6,7 @@ import javax.inject.Inject
 /**
  * Created by javiergonzalezcabezas on 6/1/18.
  */
-class RestAPI @Inject constructor(private val service: Service) : ExampleAPI {
+class RemoteDataSource @Inject constructor(private val service: Service) : ExampleAPI {
 
     //we provide a function to consume the API and request the Example
     override fun getExample(): Call<Example> {

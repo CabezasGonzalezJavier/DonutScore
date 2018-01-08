@@ -1,7 +1,7 @@
 package com.thedeveloperworldisyours.donutscore.di.score
 
 import com.thedeveloperworldisyours.donutscore.data.ExampleAPI
-import com.thedeveloperworldisyours.donutscore.data.RestAPI
+import com.thedeveloperworldisyours.donutscore.data.RemoteDataSource
 import com.thedeveloperworldisyours.donutscore.data.Service
 import dagger.Module
 import dagger.Provides
@@ -16,7 +16,7 @@ class ScoreModule {
 
     @Provides
     @Singleton
-    fun provideExampleAPI(redditApi: Service): ExampleAPI = RestAPI(redditApi)
+    fun provideExampleAPI(service: Service): ExampleAPI = RemoteDataSource(service)
 
     @Provides
     @Singleton

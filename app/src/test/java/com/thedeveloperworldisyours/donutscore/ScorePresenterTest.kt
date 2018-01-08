@@ -4,7 +4,7 @@ import com.nhaarman.mockito_kotlin.whenever
 import com.thedeveloperworldisyours.donutscore.data.CreditReportInfo
 import com.thedeveloperworldisyours.donutscore.data.Example
 import com.thedeveloperworldisyours.donutscore.data.ExampleAPI
-import com.thedeveloperworldisyours.donutscore.score.ScoreManager
+import com.thedeveloperworldisyours.donutscore.score.ScorePresenter
 import com.thedeveloperworldisyours.donutscore.util.MockedCall
 import junit.framework.Assert.assertNotNull
 import kotlinx.coroutines.experimental.CoroutineScope
@@ -12,13 +12,12 @@ import kotlinx.coroutines.experimental.Unconfined
 import kotlinx.coroutines.experimental.runBlocking
 import org.junit.Before
 import org.junit.Test
-import kotlin.test.assertFailsWith
 
 
 /**
  * Created by javiergonzalezcabezas on 7/1/18.
  */
-class ScoreManagerTest {
+class ScorePresenterTest {
 
     var apiMock = mock<ExampleAPI>()
 
@@ -33,28 +32,28 @@ class ScoreManagerTest {
         Example(null, CreditReportInfo(543, null, null, null, null,null, null, null, null), null, null, null, null).mockApiCall()
 
         // when
-        val scoreManager = ScoreManager(apiMock)
-        val example = scoreManager.getExample()
+        val scorePresenter = ScorePresenter(apiMock)
+        val example = scorePresenter.getExample()
 
         // then
         assertNotNull(example)
     }
 
     @Test
-    fun error_Exception_received_from_service_call() {
+    fun success_check_response_in_score() = testBlocking {
+
         // given
-        val callMock = MockedCall<Example>(exception = Throwable())
-        whenever(apiMock.getExample()).thenReturn(callMock)
+        Example(null, CreditReportInfo(543, null, null, null, 700,null, null, null, null), null, null, null, null).mockApiCall()
+        var example = Example(null, CreditReportInfo(543, null, null, null, 700,null, null, null, null), null, null, null, null)
 
         // when
-        val newsManager = ScoreManager(apiMock)
+        val scorePresenter = ScorePresenter(apiMock)
+        val response = scorePresenter.getExample()
 
         // then
-        assertFailsWith<Throwable> {
-            runBlocking {
-                newsManager.getExample()
-            }
-        }
+        assertNotNull(response)
+        assert(response!!.creditReportInfo?.score == example!!.creditReportInfo?.score)
+        assert(response!!.creditReportInfo?.maxScoreValue == example!!.creditReportInfo?.maxScoreValue)
     }
 
     private fun testBlocking(block: suspend CoroutineScope.() -> Unit) {

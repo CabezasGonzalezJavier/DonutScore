@@ -22,7 +22,7 @@ import android.animation.ObjectAnimator
  */
 class ScoreFragment : BaseFragment() {
 
-    @Inject lateinit var scoreManager: ScoreManager
+    @Inject lateinit var scoreManager: ScorePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
