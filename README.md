@@ -1,5 +1,7 @@
 # DonutScore
-
+<p align="center">
+ <img src="https://github.com/CabezasGonzalezJavier/DonutScore/blob/master/resources/Screenshot.png" width="300px" />
+</p>
 
 This app inclid:
 
