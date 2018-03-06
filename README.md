@@ -3,6 +3,7 @@
  <img src="https://github.com/CabezasGonzalezJavier/DonutScore/blob/master/resources/Screenshot.png" width="300px" />
 </p>
 
+
 This app inclid:
 
 **[MVP](https://antonioleiva.com/mvp-android/)**
@@ -35,6 +36,7 @@ Libraries and tools included:
     - Install gradle:
 
     http://gradle.org/docs/current/userguide/installation.html
+
 
 # Usage
     Compile with Android Studio and gradle
